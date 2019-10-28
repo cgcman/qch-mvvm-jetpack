@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.grdj.quecomemoshoy.view.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_main_to_random"
+            app:destination="@id/randomFoodFragment" />
+        <action
+            android:id="@+id/action_main_to_foodList"
+            app:destination="@id/foodListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/randomFoodFragment"
+        android:name="com.grdj.quecomemoshoy.view.RandomFoodFragment"
+        android:label="fragment_random_food"
+        tools:layout="@layout/fragment_random_food" >
+        <action
+            android:id="@+id/action_random_to_main"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_random_to_details"
+            app:destination="@id/foodDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodListFragment"
+        android:name="com.grdj.quecomemoshoy.view.FoodListFragment"
+        android:label="fragment_food_list"
+        tools:layout="@layout/fragment_food_list" >
+        <action
+            android:id="@+id/action_foodList_to_main"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_foodList_to_details"
+            app:destination="@id/foodDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.grdj.quecomemoshoy.view.FoodDetailsFragment"
+        android:label="fragment_food_details"
+        tools:layout="@layout/fragment_food_details" >
+        <action
+            android:id="@+id/action_details_to_random"
+            app:destination="@id/randomFoodFragment" />
+        <action
+            android:id="@+id/action_details_to_foodList"
+            app:destination="@id/foodListFragment" />
+    </fragment>
+</navigation>

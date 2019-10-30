@@ -4,7 +4,7 @@
     <data>
         <variable
             name="foodTypeModel"
-            type="com.grdj.quecomemoshoy.model.foodTypeModel" />
+            type="com.grdj.quecomemoshoy.model.FoodTypeModel" />
     </data>
 
     <LinearLayout
@@ -27,17 +27,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="50.7dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_001_pizza"/>
+                android:imageResource="@{foodTypeModel.image}"/>
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Coffee"
+                android:text="@{foodTypeModel.title}"
                 android:textSize="11sp"
                 android:textColor="#484646"
                 android:layout_marginTop="5dp"
                 android:gravity="center"/>
+
         </LinearLayout>
 
     </LinearLayout>

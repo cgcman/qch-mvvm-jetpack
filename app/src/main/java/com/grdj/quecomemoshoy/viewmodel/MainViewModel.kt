@@ -1,13 +1,12 @@
 package com.grdj.quecomemoshoy.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.MutableLiveData
 import com.grdj.quecomemoshoy.R
-import com.grdj.quecomemoshoy.model.foodTypeModel
+import com.grdj.quecomemoshoy.model.FoodTypeModel
 
 class MainViewModel(application: Application): BaseViewModel(application){
 
-    val foodTypeList :ArrayList<foodTypeModel> = ArrayList()
+    val foodTypeList :ArrayList<FoodTypeModel> = ArrayList()
     val foodTypeListNames =  arrayOf("Pizza","Pasta","Carnes","Pollo","Mexicana","Ensaladas","Caliente","Pescado","Hamburguesas")
     val foodTypeListImgages =  arrayOf(
         R.drawable.ic_001_pizza,
@@ -23,9 +22,7 @@ class MainViewModel(application: Application): BaseViewModel(application){
 
     fun fetchFoodTypeData(){
         for((index, value) in foodTypeListNames.withIndex()){
-            val _ftm = foodTypeModel()
-            _ftm.title = value
-            _ftm.image = foodTypeListImgages.get(index)
+            val _ftm = FoodTypeModel(value, foodTypeListImgages.get(index))
             foodTypeList.add( _ftm );
         }
     }

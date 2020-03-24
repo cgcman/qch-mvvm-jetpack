@@ -16,7 +16,6 @@ class MainFragment : Fragment() {
 
     //// viewmodel inject by koin
     val viewModel: MainViewModel by viewModel()
-
     private val foodTypeAdapter = foodTypeAdapter( arrayListOf() )
 
     override fun onCreateView(

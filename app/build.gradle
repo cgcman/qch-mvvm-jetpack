@@ -12,7 +12,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.grdj.quecomemoshoy"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -33,7 +33,7 @@ def retrofitVersion = '2.3.0'
 def glideVersion = '4.9.0'
 def rxJavaVersion = '2.1.1'
 def roomVersion = '2.1.0-rc01'
-def navVersion = '2.1.0-alpha05'
+def navVersion = '2.2.1'
 def koin_version = '2.1.1'
 
 dependencies {
@@ -68,8 +68,8 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
 
     ///////// RXJAVA /////////////
-    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
+    //implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    //implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
 
     ///////// GLIDE /////////////
     implementation "com.github.bumptech.glide:glide:$glideVersion"
@@ -81,4 +81,9 @@ dependencies {
 
     //////// KOIN ////////////////
     implementation "org.koin:koin-android-viewmodel:$koin_version"
+
+    /////////// EXTRAS //////////
+    implementation 'com.github.nihad92:SwipeableCards:1.0.19'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
 }

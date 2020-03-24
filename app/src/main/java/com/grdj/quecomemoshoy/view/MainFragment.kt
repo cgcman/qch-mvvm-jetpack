@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.grdj.quecomemoshoy.R
-import com.grdj.quecomemoshoy.adapters.foodTypeAdapter
+import com.grdj.quecomemoshoy.adapters.FoodTypeAdapter
 import com.grdj.quecomemoshoy.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 
@@ -16,7 +16,7 @@ class MainFragment : Fragment() {
 
     //// viewmodel inject by koin
     val viewModel: MainViewModel by viewModel()
-    private val foodTypeAdapter = foodTypeAdapter( arrayListOf() )
+    private val foodTypeAdapter = FoodTypeAdapter( arrayListOf() )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

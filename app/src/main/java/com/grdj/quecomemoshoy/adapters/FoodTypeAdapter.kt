@@ -1,14 +1,17 @@
 package com.grdj.quecomemoshoy.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.databinding.ItemFoodTypeBinding
 import com.grdj.quecomemoshoy.model.FoodTypeModel
+import com.grdj.quecomemoshoy.view.FoodListFragment
+import com.grdj.quecomemoshoy.view.MainFragment
 
-class foodTypeAdapter(val list:ArrayList<FoodTypeModel>): RecyclerView.Adapter<foodTypeAdapter.MyViewHolder>() {
+class FoodTypeAdapter(val list:ArrayList<FoodTypeModel>): RecyclerView.Adapter<FoodTypeAdapter.MyViewHolder>(), FoodTypeClickListener {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
@@ -26,6 +29,10 @@ class foodTypeAdapter(val list:ArrayList<FoodTypeModel>): RecyclerView.Adapter<f
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.item.foodTypeModel = list[position]
+    }
+
+    override fun onItemClicked(v: View) {
+        //val action = Direc
     }
 
     class MyViewHolder(var item: ItemFoodTypeBinding): RecyclerView.ViewHolder(item.root)

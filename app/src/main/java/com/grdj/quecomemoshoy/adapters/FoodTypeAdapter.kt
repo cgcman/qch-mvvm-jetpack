@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.databinding.ItemFoodTypeBinding
@@ -32,7 +33,7 @@ class FoodTypeAdapter(val list:ArrayList<FoodTypeModel>): RecyclerView.Adapter<F
     }
 
     override fun onItemClicked(v: View) {
-        //val action = Direc
+        Navigation.findNavController(v).navigate(R.id.action_main_to_foodList)
     }
 
     class MyViewHolder(var item: ItemFoodTypeBinding): RecyclerView.ViewHolder(item.root)

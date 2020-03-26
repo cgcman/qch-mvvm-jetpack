@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.grdj.quecomemoshoy.R
@@ -36,5 +37,9 @@ class MainFragment : Fragment() {
         viewModel.fetchFoodTypeData()
 
         foodTypeAdapter.updateList(viewModel.foodTypeList)
+
+        roulette.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_main_to_random)
+        }
     }
 }

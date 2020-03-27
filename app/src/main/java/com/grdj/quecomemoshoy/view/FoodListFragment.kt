@@ -17,7 +17,7 @@ class FoodListFragment : Fragment() {
 
     //// viewmodel inject by koin
     val viewModel: FoodListViewModel by viewModel()
-    lateinit var recipeAdapter: FoodListAdapter(arrayListOf())
+    lateinit var recipeAdapter: FoodListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

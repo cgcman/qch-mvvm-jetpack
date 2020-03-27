@@ -6,5 +6,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.FoodListFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <TextView
+                android:text="Pizza Margarita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/belmonte"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/foodList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="70dp"
+                android:clipToPadding="false"/>
+
+        </LinearLayout>
+
     </FrameLayout>
 </layout>

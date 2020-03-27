@@ -27,6 +27,12 @@ class FoodListAdapter(val list:ArrayList<RecipeModel>): RecyclerView.Adapter<Foo
         holder.bindItems(list[position], _cntx)
     }
 
+    fun updateList(newList: ArrayList<RecipeModel>){
+        list.clear()
+        list.addAll(newList)
+        notifyDataSetChanged()
+    }
+
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(item: RecipeModel, context: Context) {

@@ -5,6 +5,9 @@
         <variable
             name="foodTypeModel"
             type="com.grdj.quecomemoshoy.model.FoodTypeModel" />
+        <variable
+            name="listener"
+            type="com.grdj.quecomemoshoy.adapters.FoodTypeClickListener" />
     </data>
 
     <LinearLayout
@@ -20,6 +23,7 @@
             android:layout_marginBottom="15dp"
             android:orientation="vertical"
             android:gravity="center"
+            android:onClick="@{listener::onItemClicked}"
             android:background="@drawable/rectangle">
 
             <ImageView

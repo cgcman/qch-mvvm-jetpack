@@ -1,16 +1,20 @@
 package com.grdj.quecomemoshoy.model
 
-class RecipeModel {
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
-    var title:String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
+@Entity
+data class RecipeModel (
+    @ColumnInfo(name = "title")
+    @SerializedName("title")
+    var title:String?,
 
-    var image:String = ""
-        get() = field
-        set(value) {
-            field = value
-        }
+    @ColumnInfo(name = "image")
+    @SerializedName("image")
+    var image:String?
+){
+    @PrimaryKey(autoGenerate = true)
+    var uuid: Int = 0
 }

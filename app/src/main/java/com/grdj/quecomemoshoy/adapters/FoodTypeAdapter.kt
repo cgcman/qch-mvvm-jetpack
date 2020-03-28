@@ -9,9 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.databinding.ItemFoodTypeBinding
 import com.grdj.quecomemoshoy.model.FoodTypeModel
-import com.grdj.quecomemoshoy.view.FoodListFragment
-import com.grdj.quecomemoshoy.view.MainFragment
-import kotlinx.android.synthetic.main.item_food_type.view.*
 
 class FoodTypeAdapter(val list:ArrayList<FoodTypeModel>): RecyclerView.Adapter<FoodTypeAdapter.MyViewHolder>(), FoodTypeClickListener {
 

@@ -4,18 +4,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.grdj.quecomemoshoy.R
+import com.grdj.quecomemoshoy.databinding.FoodListItemBinding
 import com.grdj.quecomemoshoy.model.RecipeModel
-import kotlinx.android.synthetic.main.food_list_item.view.*
 
-class FoodListAdapter(val list:ArrayList<RecipeModel>): RecyclerView.Adapter<FoodListAdapter.MyViewHolder>() {
-    lateinit var _cntx: Context
+class FoodListAdapter(val list:ArrayList<RecipeModel>): RecyclerView.Adapter<FoodListAdapter.MyViewHolder>(), FoodTypeClickListener {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.food_list_item, parent, false)
-        _cntx = parent.context
+        val inflater: LayoutInflater = LayoutInflater.from(parent.context)
+        //val itemView = LayoutInflater.from(parent.context).inflate(R.layout.food_list_item, parent, false)
+        val itemView = DataBindingUtil.inflate<FoodListItemBinding>(inflater, R.layout.food_list_item, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -24,7 +25,7 @@ class FoodListAdapter(val list:ArrayList<RecipeModel>): RecyclerView.Adapter<Foo
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bindItems(list[position], _cntx)
+        //holder.itemView = list[position]
     }
 
     fun updateList(newList: ArrayList<RecipeModel>){
@@ -33,18 +34,9 @@ class FoodListAdapter(val list:ArrayList<RecipeModel>): RecyclerView.Adapter<Foo
         notifyDataSetChanged()
     }
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
-        fun bindItems(item: RecipeModel, context: Context) {
-            itemView.title.text=item.title
-            val url = item.image
-
-            Glide
-                .with(context)
-                .load(url)
-                .centerCrop()
-                //.placeholder(R.drawable.progress_spin)
-                .into(itemView.food_image)
-        }
+    override fun onItemClicked(v: View) {
+        //Navigation.findNavController(v).navigate(R.id.action_main_to_foodList)
     }
+
+    class MyViewHolder(var itemView: FoodListItemBinding): RecyclerView.ViewHolder(itemView.root)
 }

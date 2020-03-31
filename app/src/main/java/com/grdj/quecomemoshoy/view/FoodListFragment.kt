@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.viewmodel.ext.android.viewModel
 
 import com.grdj.quecomemoshoy.R
@@ -30,6 +31,7 @@ class FoodListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         foodList.apply {
+            layoutManager = LinearLayoutManager(context)
             adapter = recipeAdapter
         }
 

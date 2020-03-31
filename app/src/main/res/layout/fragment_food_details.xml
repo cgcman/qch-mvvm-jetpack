@@ -2,9 +2,160 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <FrameLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.FoodDetailsFragment">
-    </FrameLayout>
+        android:background="@color/cardview_light_background">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    app:cardCornerRadius="0dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/pizza_margarita"
+                            android:scaleType="fitXY"/>
+
+                        <View
+                            android:id="@+id/anchorButton"
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"/>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:paddingStart="8dp"
+                        android:paddingTop="8dp"
+                        android:text="Pizza Margarita"
+                        android:fontFamily="@font/belmonte"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="8dp"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:id="@+id/category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/title"
+                        android:paddingBottom="8dp"
+                        android:paddingStart="8dp"
+                        android:text="Women, Dress, Summer"
+                        android:textColor="@color/darkGrey"
+                        android:textSize="12sp"
+                        android:paddingLeft="8dp"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:paddingEnd="8dp"
+                        android:text="145 calorias"
+                        android:fontFamily="@font/belmonte"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:paddingRight="8dp"
+                        android:layout_alignParentRight="true"/>
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/category"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp"
+                        android:rating="4"
+                        android:layout_marginLeft="8dp"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/darkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:animateLayoutChanges="true"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/descriptionTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:paddingBottom="4dp"
+                                android:paddingEnd="8dp"
+                                android:paddingStart="8dp"
+                                android:paddingTop="8dp"
+                                android:text="DESCRIPTION"
+                                android:textStyle="bold"
+                                android:layout_alignParentLeft="true"/>
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp"
+                            android:paddingEnd="8dp"
+                            android:paddingStart="8dp"
+                            android:text="I believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installedI believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installed. I believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installedI believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installed. I believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installedI believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installed.I believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installedI believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installed" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -30,7 +30,7 @@
                 android:id="@+id/food_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@{recipeModel.image}"/>
+                android:imageUrl="@{recipeModel.image}"/>
 
             <LinearLayout
                 android:layout_weight="1"

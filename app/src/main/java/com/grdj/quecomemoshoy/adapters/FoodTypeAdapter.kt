@@ -18,7 +18,7 @@ class FoodTypeAdapter(val list:ArrayList<FoodTypeModel>): RecyclerView.Adapter<F
         return MyViewHolder(view)
     }
 
-    override fun getItemCount() = list.size
+    override fun getItemCount(): Int = list.size
 
     fun updateList(newList: ArrayList<FoodTypeModel>){
         list.clear()

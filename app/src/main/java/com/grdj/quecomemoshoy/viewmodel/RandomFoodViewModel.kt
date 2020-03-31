@@ -20,9 +20,7 @@ class RandomFoodViewModel (application: Application): BaseViewModel(application)
 
     fun fetchFoodData(){
         for((index, value) in foodTypeListNames.withIndex()){
-            val _ftm = RecipeModel()
-            _ftm.title = value
-            _ftm.image = foodTypeImagesNames.get(index)
+            val _ftm = RecipeModel(value, foodTypeImagesNames.get(index))
             recipeList.add( _ftm );
         }
     }

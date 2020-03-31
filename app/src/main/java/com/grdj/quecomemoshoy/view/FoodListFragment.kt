@@ -17,13 +17,12 @@ class FoodListFragment : Fragment() {
 
     //// viewmodel inject by koin
     val viewModel: FoodListViewModel by viewModel()
-    lateinit var recipeAdapter: FoodListAdapter
+    private val recipeAdapter = FoodListAdapter( arrayListOf() )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_food_list, container, false)
     }
 

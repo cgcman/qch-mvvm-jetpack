@@ -9,11 +9,11 @@ import com.google.gson.annotations.SerializedName
 data class RecipeModel (
     @ColumnInfo(name = "title")
     @SerializedName("title")
-    var title:String?,
+    var title:String,
 
     @ColumnInfo(name = "image")
     @SerializedName("image")
-    var image:String?
+    var image:String
 ){
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0

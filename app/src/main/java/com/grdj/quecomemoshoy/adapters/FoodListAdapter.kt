@@ -15,18 +15,11 @@ class FoodListAdapter(val list:ArrayList<RecipeModel>): RecyclerView.Adapter<Foo
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
-        //val itemView = LayoutInflater.from(parent.context).inflate(R.layout.food_list_item, parent, false)
         val itemView = DataBindingUtil.inflate<FoodListItemBinding>(inflater, R.layout.food_list_item, parent, false)
         return MyViewHolder(itemView)
     }
 
-    override fun getItemCount(): Int {
-        return list.size
-    }
-
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        //holder.itemView = list[position]
-    }
+    override fun getItemCount(): Int = list.size
 
     fun updateList(newList: ArrayList<RecipeModel>){
         list.clear()
@@ -34,9 +27,14 @@ class FoodListAdapter(val list:ArrayList<RecipeModel>): RecyclerView.Adapter<Foo
         notifyDataSetChanged()
     }
 
-    override fun onItemClicked(v: View) {
-        //Navigation.findNavController(v).navigate(R.id.action_main_to_foodList)
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.item.recipeModel= list[position]
+        holder.item.listener = this
     }
 
-    class MyViewHolder(var itemView: FoodListItemBinding): RecyclerView.ViewHolder(itemView.root)
+    override fun onItemClicked(v: View) {
+        Navigation.findNavController(v).navigate(R.id.action_foodList_to_details)
+    }
+
+    class MyViewHolder(var item: FoodListItemBinding): RecyclerView.ViewHolder(item.root)
 }

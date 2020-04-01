@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -19,6 +20,8 @@ class FoodListFragment : Fragment() {
     //// viewmodel inject by koin
     val viewModel: FoodListViewModel by viewModel()
     private val recipeAdapter = FoodListAdapter( arrayListOf() )
+    private var from = 0
+    private var to = 30
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,12 +33,23 @@ class FoodListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        refreshLayout.setOnRefreshListener {
+
+        }
+
         foodList.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = recipeAdapter
         }
+        val app_id = resources.getString(R.string.EDAMAM_APP_ID)
+        val app_key = resources.getString(R.string.EDAMAM_API_KEY)
 
-        viewModel.fetchData()
-        recipeAdapter.updateList(viewModel.recipeList)
+        viewModel.getDataFromTo(app_id, app_key, from.toString(), to.toString(), "pizza")
+        viewModel.recipes.observe(viewLifecycleOwner, Observer{ recipesList ->
+            recipesList.let {
+                recipeAdapter.updateList(it.hits)
+            }
+        })
+
     }
 }

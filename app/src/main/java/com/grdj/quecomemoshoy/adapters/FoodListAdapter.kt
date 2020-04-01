@@ -8,9 +8,9 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.databinding.FoodListItemBinding
-import com.grdj.quecomemoshoy.model.RecipeModel
+import com.grdj.quecomemoshoy.model.fullrecipe.Hits
 
-class FoodListAdapter(val list:ArrayList<RecipeModel>): RecyclerView.Adapter<FoodListAdapter.MyViewHolder>(), FoodTypeClickListener {
+class FoodListAdapter(val list:ArrayList<Hits>): RecyclerView.Adapter<FoodListAdapter.MyViewHolder>(), FoodTypeClickListener {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
@@ -20,7 +20,7 @@ class FoodListAdapter(val list:ArrayList<RecipeModel>): RecyclerView.Adapter<Foo
 
     override fun getItemCount(): Int = list.size
 
-    fun updateList(newList: ArrayList<RecipeModel>){
+    fun updateList(newList: ArrayList<Hits>){
         list.clear()
         list.addAll(newList)
         notifyDataSetChanged()

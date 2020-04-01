@@ -1,25 +1,46 @@
 package com.grdj.quecomemoshoy.viewmodel
 
 import android.app.Application
-import com.grdj.quecomemoshoy.model.RecipeModel
+import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
+import com.grdj.quecomemoshoy.model.fullrecipe.RecipesResponse
+import com.grdj.quecomemoshoy.services.RecipeService
+import kotlinx.coroutines.launch
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class FoodListViewModel (application: Application): BaseViewModel(application){
-    var recipeList = ArrayList<RecipeModel>()
-    var foodTypeListNames =  arrayOf("Pizza","Pasta","Carnes","Pollo","Mexicana","Ensaladas","Caliente","Pescado","Hamburguesas")
-    var foodTypeImagesNames =  arrayOf("http://www.amomikitchenaid.com/wp-content/uploads/2017/02/BLOG-RECETA-PIZZA-MARGARITA-MAR17-800x600.jpg",
-        "http://perudelights.com/wp-content/uploads/2013/04/pasta-huancaina-10.jpg",
-        "http://media.healthday.com/Images/icimages/steak33.jpg?resize=800:600",
-        "http://www.polloalamostaza.com/wp-content/uploads/2016/03/pollo-relleno-al-horno.jpg",
-        "http://perudelights.com/wp-content/uploads/2013/04/taco-de-lomo-saltado.jpg",
-        "https://www.budgetbytes.com/wp-content/uploads/2017/03/Super-Fresh-Salad-close-2.jpg",
-        "https://www.budgetbytes.com/wp-content/uploads/2014/11/Moroccan-Lentil-and-Vegetable-Stew-bowl.jpg",
-        "http://perudelights.com/wp-content/uploads/2013/08/Chaufa-de-pescado.R.-jpg-2.jpg",
-        "https://cdn2.salsadesoja.com/wp-content/uploads/2017/10/hamburguesa-con-salsa-de-soja-portada.jpg")
+class FoodListViewModel (application: Application): BaseViewModel(application), KoinComponent {
 
-    fun fetchData(){
-        for((index, value) in foodTypeListNames.withIndex()){
-            val _ftm = RecipeModel(value, foodTypeImagesNames.get(index))
-            recipeList.add( _ftm );
+    val recipeService by inject<RecipeService>()
+    var recipes = MutableLiveData<RecipesResponse>()
+    val loading = MutableLiveData<Boolean>()
+
+    fun getDataFromTo(app_id : String, app_key: String, from : String, to : String, query : String){
+        fetchFromRemote(app_id, app_key, from, to, query)
+    }
+
+    private fun fetchFromRemote(app_id : String, app_key: String, from : String, to : String, query : String){
+        loading.value = true
+        launch {
+            try {
+                val response = recipeService.search(app_id, app_key, from, to, query)
+                if(response.isSuccessful){
+                    recipes.value = response.body()
+                    loading.value = false
+                } else{
+                    Log.e("EXC", "ERROR: "+response)
+                    responseError()
+                }
+            } catch (e: Exception){
+                Log.e("EXC", ""+e)
+                responseError()
+            }
         }
+    }
+
+    private fun responseError(){
+        Toast.makeText(getApplication(), "Error obteniendo los datos", Toast.LENGTH_SHORT).show()
+        loading.value = false
     }
 }

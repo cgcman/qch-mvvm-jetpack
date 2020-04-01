@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Que comemos hoy</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">¿Que comemos hoy?</string>
+    <string name="EDAMAM_APP_ID">d6b9676d</string>
+    <string name="EDAMAM_API_KEY">09c6d5501e313925ec3e2cd9de559986</string>
 </resources>

@@ -4,7 +4,7 @@
     <data>
         <variable
             name="recipeModel"
-            type="com.grdj.quecomemoshoy.model.RecipeModel" />
+            type="com.grdj.quecomemoshoy.model.fullrecipe.Hits" />
         <variable
             name="listener"
             type="com.grdj.quecomemoshoy.adapters.FoodTypeClickListener" />
@@ -30,7 +30,7 @@
                 android:id="@+id/food_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:imageUrl="@{recipeModel.image}"/>
+                android:imageUrl="@{recipeModel.recipe.image}"/>
 
             <LinearLayout
                 android:layout_weight="1"
@@ -45,13 +45,13 @@
                     android:layout_height="wrap_content"
                     android:textColor="#000"
                     android:textSize="11.7sp"
-                    android:text="@{recipeModel.title}"
+                    android:text="@{recipeModel.recipe.label}"
                     android:fontFamily="@font/belmonte"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3 hrs"
+                    android:text="@{`Rinde: `+recipeModel.recipe.yield}"
                     android:textSize="11sp"
                     android:fontFamily="@font/belmonte"
                     android:textColor="#7d7b7b"/>
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#000"
                     android:textSize="11sp"
-                    android:text="So we needed"
+                    android:text="@{`Cantidad de ingredientes: `+recipeModel.recipe.ingredients.size()}"
                     android:layout_marginTop="5sp"/>
 
             </LinearLayout>

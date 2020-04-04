@@ -21,6 +21,7 @@ class MainViewModel(application: Application): BaseViewModel(application){
 
 
     fun fetchFoodTypeData(){
+        foodTypeList.clear()
         for((index, value) in foodTypeListNames.withIndex()){
             val _ftm = FoodTypeModel(value, foodTypeListImgages.get(index))
             foodTypeList.add( _ftm );

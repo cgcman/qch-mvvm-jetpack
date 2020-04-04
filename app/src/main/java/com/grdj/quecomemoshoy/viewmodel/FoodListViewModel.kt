@@ -22,6 +22,7 @@ class FoodListViewModel (application: Application): BaseViewModel(application), 
 
     private fun fetchFromRemote(app_id : String, app_key: String, from : String, to : String, query : String){
         loading.value = true
+        Log.e("DATA",query)
         launch {
             try {
                 val response = recipeService.search(app_id, app_key, from, to, query)

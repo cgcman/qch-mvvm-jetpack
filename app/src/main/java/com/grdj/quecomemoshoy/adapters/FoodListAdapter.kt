@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.databinding.FoodListItemBinding
 import com.grdj.quecomemoshoy.model.fullrecipe.Hits
+import com.grdj.quecomemoshoy.view.FoodListFragmentDirections
 
 class FoodListAdapter(val list:ArrayList<Hits>): RecyclerView.Adapter<FoodListAdapter.MyViewHolder>(), FoodTypeClickListener {
 
@@ -32,7 +33,8 @@ class FoodListAdapter(val list:ArrayList<Hits>): RecyclerView.Adapter<FoodListAd
     }
 
     override fun onItemClicked(v: View) {
-        Navigation.findNavController(v).navigate(R.id.action_foodList_to_details)
+        val action = FoodListFragmentDirections.actionFoodListToDetails()
+        Navigation.findNavController(v).navigate(action)
     }
 
     class MyViewHolder(var item: FoodListItemBinding): RecyclerView.ViewHolder(item.root)

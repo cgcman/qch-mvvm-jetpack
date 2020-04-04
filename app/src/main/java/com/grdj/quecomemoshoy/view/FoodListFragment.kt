@@ -16,12 +16,12 @@ import com.grdj.quecomemoshoy.viewmodel.FoodListViewModel
 import kotlinx.android.synthetic.main.fragment_food_list.*
 
 class FoodListFragment : Fragment() {
-
     //// viewmodel inject by koin
     val viewModel: FoodListViewModel by viewModel()
     private val recipeAdapter = FoodListAdapter( arrayListOf() )
     private var from = 0
     private var to = 30
+    private var query = "Pizza"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,24 +32,23 @@ class FoodListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        refreshLayout.setOnRefreshListener {
-
+        arguments.let {
+            query = FoodListFragmentArgs.fromBundle(it!!).query
         }
-
         foodList.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = recipeAdapter
         }
         val app_id = resources.getString(R.string.EDAMAM_APP_ID)
         val app_key = resources.getString(R.string.EDAMAM_API_KEY)
-
-        viewModel.getDataFromTo(app_id, app_key, from.toString(), to.toString(), "pizza")
+        viewModel.getDataFromTo(app_id, app_key, from.toString(), to.toString(), query)
         viewModel.recipes.observe(viewLifecycleOwner, Observer{ recipesList ->
             recipesList.let {
                 recipeAdapter.updateList(it.hits)
             }
         })
+        refreshLayout.setOnRefreshListener {
 
+        }
     }
 }

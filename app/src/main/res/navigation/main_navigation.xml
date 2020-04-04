@@ -42,6 +42,11 @@
         <action
             android:id="@+id/action_foodList_to_details"
             app:destination="@id/foodDetailsFragment" />
+        <argument
+            android:name="query"
+            android:defaultValue="pizza"
+            app:argType="string">
+        </argument>
     </fragment>
     <fragment
         android:id="@+id/foodDetailsFragment"

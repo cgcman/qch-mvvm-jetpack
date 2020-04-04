@@ -30,6 +30,7 @@
                 android:id="@+id/food_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:backgroundTint="@color/colorAccent"
                 android:imageUrl="@{recipeModel.recipe.image}"/>
 
             <LinearLayout

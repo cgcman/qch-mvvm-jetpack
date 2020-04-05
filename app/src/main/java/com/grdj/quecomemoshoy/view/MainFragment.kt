@@ -35,7 +35,6 @@ class MainFragment : Fragment() {
         }
 
         viewModel.fetchFoodTypeData()
-
         foodTypeAdapter.updateList(viewModel.foodTypeList)
 
         roulette.setOnClickListener{

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="recipeModel"
+            type="com.grdj.quecomemoshoy.model.fullrecipe.Hits" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/cardview_light_background">
@@ -19,7 +26,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="280dp"
+                    android:layout_height="350dp"
                     app:cardCornerRadius="0dp">
 
                     <RelativeLayout
@@ -30,8 +37,8 @@
                             android:id="@+id/image"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/pizza_margarita"
-                            android:scaleType="fitXY"/>
+                            android:imageUrl="@{recipeModel.recipe.image}"
+                            android:scaleType="centerCrop"/>
 
                         <View
                             android:id="@+id/anchorButton"
@@ -55,10 +62,11 @@
                         android:layout_alignParentStart="true"
                         android:paddingStart="8dp"
                         android:paddingTop="8dp"
-                        android:text="Pizza Margarita"
+                        android:text="@{recipeModel.recipe.label}"
                         android:fontFamily="@font/belmonte"
                         android:textColor="@color/colorPrimary"
                         android:textSize="20sp"
+                        android:lineHeight="27sp"
                         android:textStyle="bold"
                         android:paddingLeft="8dp"
                         android:layout_alignParentLeft="true"/>
@@ -71,7 +79,7 @@
                         android:layout_below="@+id/title"
                         android:paddingBottom="8dp"
                         android:paddingStart="8dp"
-                        android:text="Women, Dress, Summer"
+                        android:text="@{`Creador: `+recipeModel.recipe.source}"
                         android:textColor="@color/darkGrey"
                         android:textSize="12sp"
                         android:paddingLeft="8dp"
@@ -81,16 +89,19 @@
                         android:id="@+id/price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/ratingBar"
                         android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:paddingEnd="8dp"
-                        android:text="145 calorias"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="-24dp"
+                        android:layout_marginBottom="32dp"
                         android:fontFamily="@font/belmonte"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:text="@{`Calorias: `+recipeModel.recipe.calories}"
                         android:textColor="@color/cardview_dark_background"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:paddingRight="8dp"
-                        android:layout_alignParentRight="true"/>
+                        android:textStyle="bold" />
 
                     <RatingBar
                         android:id="@+id/ratingBar"
@@ -100,7 +111,7 @@
                         android:layout_below="@+id/category"
                         android:layout_marginBottom="8dp"
                         android:layout_marginStart="8dp"
-                        android:rating="4"
+                        android:rating="@{recipeModel.recipe.yield}"
                         android:layout_marginLeft="8dp"/>
 
                 </RelativeLayout>
@@ -134,7 +145,8 @@
                                 android:paddingEnd="8dp"
                                 android:paddingStart="8dp"
                                 android:paddingTop="8dp"
-                                android:text="DESCRIPTION"
+                                android:textSize="20sp"
+                                android:text="Receta:"
                                 android:textStyle="bold"
                                 android:layout_alignParentLeft="true"/>
 
@@ -145,9 +157,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingBottom="8dp"
+                            android:textSize="14sp"
+                            android:lineHeight="18sp"
+                            android:textColor="@android:color/black"
                             android:paddingEnd="8dp"
                             android:paddingStart="8dp"
-                            android:text="I believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installedI believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installed. I believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installedI believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installed. I believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installedI believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installed.I believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installedI believe this is the most often missed issue as it doesn't appear in most other answers nor examples. The answer above mentions both appcompat and design, so is technically more correct, but I bet most people wouldn't get this far if appcompat were missing. The actual version of design doesn't matter, so feel free to use a newer one if your Android Studio has a newer one already installed" />
+                            android:text="@{recipeModel.recipe.ingredientLines.toString()}">
+                        </TextView>
 
                     </LinearLayout>
 

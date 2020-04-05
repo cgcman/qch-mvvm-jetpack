@@ -13,11 +13,11 @@
         <action
             android:id="@+id/action_main_to_random"
             app:destination="@id/randomFoodFragment"
-            app:enterAnim="@anim/fragment_close_enter"
-            app:exitAnim="@anim/fragment_close_exit" />
+            app:enterAnim="@anim/fragment_close_enter" />
         <action
             android:id="@+id/action_main_to_foodList"
-            app:destination="@id/foodListFragment" />
+            app:destination="@id/foodListFragment"
+            app:enterAnim="@anim/fragment_close_enter" />
     </fragment>
     <fragment
         android:id="@+id/randomFoodFragment"
@@ -26,7 +26,8 @@
         tools:layout="@layout/fragment_random_food" >
         <action
             android:id="@+id/action_random_to_main"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/fragment_close_enter" />
         <action
             android:id="@+id/action_random_to_details"
             app:destination="@id/foodDetailsFragment" />
@@ -38,10 +39,12 @@
         tools:layout="@layout/fragment_food_list" >
         <action
             android:id="@+id/action_foodList_to_main"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/fragment_close_enter" />
         <action
             android:id="@+id/action_foodList_to_details"
-            app:destination="@id/foodDetailsFragment" />
+            app:destination="@id/foodDetailsFragment"
+            app:enterAnim="@anim/fragment_close_enter" />
         <argument
             android:name="query"
             android:defaultValue="pizza"
@@ -58,6 +61,13 @@
             app:destination="@id/randomFoodFragment" />
         <action
             android:id="@+id/action_details_to_foodList"
-            app:destination="@id/foodListFragment" />
+            app:destination="@id/foodListFragment"
+            app:enterAnim="@anim/fragment_close_enter" />
+        <argument
+            app:nullable="true"
+            android:name="recipe"
+            android:defaultValue="@null"
+            app:argType="com.grdj.quecomemoshoy.model.fullrecipe.Hits">
+        </argument>
     </fragment>
 </navigation>

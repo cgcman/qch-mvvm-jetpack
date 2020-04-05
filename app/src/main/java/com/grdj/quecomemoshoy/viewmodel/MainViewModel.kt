@@ -7,7 +7,7 @@ import com.grdj.quecomemoshoy.model.FoodTypeModel
 class MainViewModel(application: Application): BaseViewModel(application){
 
     val foodTypeList :ArrayList<FoodTypeModel> = ArrayList()
-    val foodTypeListNames =  arrayOf("Pizza","Pasta","Carnes","Pollo","Mexicana","Ensaladas","Caliente","Pescado","Hamburguesas")
+    val foodTypeListNames =  arrayOf("Pizza","Pasta","Carnes","Pollo","Mexicana","Ensaladas","Guisantes","Pescado","Hamburguesas")
     val foodTypeListImgages =  arrayOf(
         R.drawable.ic_001_pizza,
         R.drawable.ic_002_espaguetis,

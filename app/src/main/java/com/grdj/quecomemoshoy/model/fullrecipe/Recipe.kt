@@ -1,7 +1,10 @@
 package com.grdj.quecomemoshoy.model.fullrecipe
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Recipe (
 	@SerializedName("uri") val uri : String,
 	@SerializedName("label") val label : String,
@@ -20,4 +23,4 @@ data class Recipe (
 	@SerializedName("totalNutrients") val totalNutrients : TotalNutrients,
 	@SerializedName("totalDaily") val totalDaily : TotalDaily,
 	@SerializedName("digest") val digest : List<Digest>
-)
+): Parcelable

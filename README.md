@@ -3,7 +3,7 @@
 # Demo Recipe App
 
 ### Test application that shows and filter Recipes
-[![Visit Website](http://www.grdj.com.ar/img/QCHTestFull2.jpg)](http://www.grdj.com.ar)<br>
+[![Visit Website](http://www.grdj.com.ar/img/QCHTestFull2.jpg)](http://www.grdj.com.ar)
 #### Use:<br>
 Koin Dependency injection<br>
 MVVM architecture<br>

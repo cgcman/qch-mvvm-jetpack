@@ -1,10 +1,9 @@
-package com.grdj.quecomemoshoy.view
+package com.grdj.quecomemoshoy.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
 import com.grdj.quecomemoshoy.R
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +14,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         navController = Navigation.findNavController(this, R.id.fragment)
     }
 }

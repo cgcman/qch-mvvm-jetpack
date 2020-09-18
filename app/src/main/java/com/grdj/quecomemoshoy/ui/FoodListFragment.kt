@@ -1,4 +1,4 @@
-package com.grdj.quecomemoshoy.view
+package com.grdj.quecomemoshoy.ui
 
 
 import android.content.Context
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.viewmodel.ext.android.viewModel
 
 import com.grdj.quecomemoshoy.R
-import com.grdj.quecomemoshoy.adapters.FoodListAdapter
+import com.grdj.quecomemoshoy.ui.adapters.FoodListAdapter
 import com.grdj.quecomemoshoy.viewmodel.FoodListViewModel
 import kotlinx.android.synthetic.main.fragment_food_list.*
 

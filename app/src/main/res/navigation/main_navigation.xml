@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.grdj.quecomemoshoy.view.MainFragment"
+        android:name="com.grdj.quecomemoshoy.ui.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/randomFoodFragment"
-        android:name="com.grdj.quecomemoshoy.view.RandomFoodFragment"
+        android:name="com.grdj.quecomemoshoy.ui.RandomFoodFragment"
         android:label="fragment_random_food"
         tools:layout="@layout/fragment_random_food" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/foodListFragment"
-        android:name="com.grdj.quecomemoshoy.view.FoodListFragment"
+        android:name="com.grdj.quecomemoshoy.ui.FoodListFragment"
         android:label="fragment_food_list"
         tools:layout="@layout/fragment_food_list" >
         <action
@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/foodDetailsFragment"
-        android:name="com.grdj.quecomemoshoy.view.FoodDetailsFragment"
+        android:name="com.grdj.quecomemoshoy.ui.FoodDetailsFragment"
         android:label="fragment_food_details"
         tools:layout="@layout/fragment_food_details" >
         <action

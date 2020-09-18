@@ -1,4 +1,4 @@
-package com.grdj.quecomemoshoy.adapters
+package com.grdj.quecomemoshoy.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,4 +1,4 @@
-package com.grdj.quecomemoshoy.view
+package com.grdj.quecomemoshoy.ui
 
 
 import android.os.Bundle

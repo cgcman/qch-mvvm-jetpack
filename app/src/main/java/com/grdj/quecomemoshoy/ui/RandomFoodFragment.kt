@@ -1,4 +1,4 @@
-package com.grdj.quecomemoshoy.view
+package com.grdj.quecomemoshoy.ui
 
 
 import android.os.Bundle
@@ -14,7 +14,7 @@ import swipeable.com.layoutmanager.SwipeableTouchHelperCallback
 import swipeable.com.layoutmanager.touchelper.ItemTouchHelper
 import swipeable.com.layoutmanager.SwipeableLayoutManager;
 import com.grdj.quecomemoshoy.R
-import com.grdj.quecomemoshoy.adapters.SwiperAdapter
+import com.grdj.quecomemoshoy.ui.adapters.SwiperAdapter
 import com.grdj.quecomemoshoy.viewmodel.RandomFoodViewModel
 import kotlinx.android.synthetic.main.fragment_random_food.*
 

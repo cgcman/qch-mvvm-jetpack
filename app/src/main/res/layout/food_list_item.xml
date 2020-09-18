@@ -8,7 +8,7 @@
             type="com.grdj.quecomemoshoy.model.fullrecipe.Hits" />
         <variable
             name="listener"
-            type="com.grdj.quecomemoshoy.adapters.FoodTypeClickListener" />
+            type="com.grdj.quecomemoshoy.ui.adapters.FoodTypeClickListener" />
     </data>
 
     <LinearLayout

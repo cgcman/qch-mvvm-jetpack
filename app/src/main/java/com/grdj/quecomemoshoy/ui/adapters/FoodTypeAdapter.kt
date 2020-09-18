@@ -1,4 +1,4 @@
-package com.grdj.quecomemoshoy.adapters
+package com.grdj.quecomemoshoy.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.databinding.ItemFoodTypeBinding
 import com.grdj.quecomemoshoy.model.FoodTypeModel
-import com.grdj.quecomemoshoy.view.MainFragmentDirections
+import com.grdj.quecomemoshoy.ui.MainFragmentDirections
 import kotlinx.android.synthetic.main.item_food_type.view.*
 
 class FoodTypeAdapter(val list:ArrayList<FoodTypeModel>): RecyclerView.Adapter<FoodTypeAdapter.MyViewHolder>(), FoodTypeClickListener {

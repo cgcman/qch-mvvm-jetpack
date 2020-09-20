@@ -1,14 +1,13 @@
 package com.grdj.quecomemoshoy.ui
 
-
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
-import org.koin.android.viewmodel.ext.android.viewModel
 import swipeable.com.layoutmanager.OnItemSwiped
 import swipeable.com.layoutmanager.SwipeableTouchHelperCallback
 import swipeable.com.layoutmanager.touchelper.ItemTouchHelper
@@ -20,8 +19,8 @@ import kotlinx.android.synthetic.main.fragment_random_food.*
 
 class RandomFoodFragment : Fragment() {
 
-    //// viewmodel inject by koin
-    val viewModel: RandomFoodViewModel by viewModel()
+    //// viewmodel inject by Dagger Hilt
+    val viewModel: RandomFoodViewModel by viewModels()
     private lateinit var swiperAdapter : SwiperAdapter
 
     override fun onCreateView(

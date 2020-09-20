@@ -1,9 +1,10 @@
 package com.grdj.quecomemoshoy.viewmodel
 
 import android.app.Application
+import androidx.hilt.lifecycle.ViewModelInject
 import com.grdj.quecomemoshoy.model.RecipeModel
 
-class RandomFoodViewModel (application: Application): BaseViewModel(application) {
+class RandomFoodViewModel @ViewModelInject constructor(application: Application): BaseViewModel(application) {
 
     var recipeList = ArrayList<RecipeModel>()
     var foodTypeListNames =  arrayOf("Pizza","Pasta","Carnes","Pollo","Mexicana","Ensaladas","Caliente","Pescado","Hamburguesas")

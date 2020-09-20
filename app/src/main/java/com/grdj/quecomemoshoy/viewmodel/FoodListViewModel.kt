@@ -1,20 +1,19 @@
 package com.grdj.quecomemoshoy.viewmodel
 
 import android.app.Application
-import android.util.Log
 import android.widget.Toast
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import com.grdj.quecomemoshoy.model.fullrecipe.RecipesResponse
 import com.grdj.quecomemoshoy.api.results.ResultWrapper
 import com.grdj.quecomemoshoy.repository.Repository
 import kotlinx.coroutines.launch
-import org.koin.core.KoinComponent
-import org.koin.core.inject
 import timber.log.Timber
 
-class FoodListViewModel (application: Application): BaseViewModel(application), KoinComponent {
+class FoodListViewModel @ViewModelInject constructor(
+    application: Application,
+    val recipesList: Repository): BaseViewModel(application) {
 
-    val recipesList  by inject<Repository>()
     var recipes = MutableLiveData<RecipesResponse>()
     var error = MutableLiveData<Boolean>()
 

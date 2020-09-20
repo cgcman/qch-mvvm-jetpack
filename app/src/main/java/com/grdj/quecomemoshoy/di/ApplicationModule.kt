@@ -4,18 +4,20 @@ import com.grdj.quecomemoshoy.api.recipe.RecipeService
 import com.grdj.quecomemoshoy.api.recipe.RecipeServiceImpl
 import com.grdj.quecomemoshoy.repository.Repository
 import com.grdj.quecomemoshoy.repository.RepositoryImpl
-import com.grdj.quecomemoshoy.viewmodel.FoodDetailsViewModel
-import com.grdj.quecomemoshoy.viewmodel.FoodListViewModel
-import com.grdj.quecomemoshoy.viewmodel.MainViewModel
-import com.grdj.quecomemoshoy.viewmodel.RandomFoodViewModel
-import org.koin.android.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
+import javax.inject.Singleton
 
-val appModule = module{
-    viewModel { MainViewModel(get()) }
-    viewModel { RandomFoodViewModel(get()) }
-    viewModel { FoodListViewModel(get()) }
-    viewModel { FoodDetailsViewModel(get()) }
-    single { RecipeServiceImpl() as RecipeService }
-    single { RepositoryImpl(RecipeServiceImpl()) as Repository}
+@Module
+@InstallIn(ApplicationComponent::class)
+object ApplicationModule {
+    @Singleton
+    @Provides
+    fun provideRecipeServices() : RecipeService = RecipeServiceImpl()
+
+    @Singleton
+    @Provides
+    fun provideRepository() : Repository = RepositoryImpl(RecipeServiceImpl())
 }

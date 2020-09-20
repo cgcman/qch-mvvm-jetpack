@@ -10,7 +10,9 @@ import androidx.fragment.app.viewModels
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.databinding.FragmentFoodDetailsBinding
 import com.grdj.quecomemoshoy.viewmodel.FoodDetailsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FoodDetailsFragment : Fragment() {
 
     private lateinit var dataBindng: FragmentFoodDetailsBinding

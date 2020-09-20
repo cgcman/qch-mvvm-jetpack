@@ -15,8 +15,10 @@ import swipeable.com.layoutmanager.SwipeableLayoutManager;
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.ui.adapters.SwiperAdapter
 import com.grdj.quecomemoshoy.viewmodel.RandomFoodViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_random_food.*
 
+@AndroidEntryPoint
 class RandomFoodFragment : Fragment() {
 
     //// viewmodel inject by Dagger Hilt

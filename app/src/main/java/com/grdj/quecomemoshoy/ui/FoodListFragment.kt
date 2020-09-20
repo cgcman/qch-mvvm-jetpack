@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.ui.adapters.FoodListAdapter
 import com.grdj.quecomemoshoy.viewmodel.FoodListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_food_list.*
 
+@AndroidEntryPoint
 class FoodListFragment : Fragment() {
     //// viewmodel inject by Dagger Hilt
     val viewModel: FoodListViewModel by viewModels()

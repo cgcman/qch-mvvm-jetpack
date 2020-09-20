@@ -10,7 +10,7 @@ import com.grdj.quecomemoshoy.repository.Repository
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class FoodListViewModel @ViewModelInject constructor(
+class FoodListViewModel @ViewModelInject public constructor(
     application: Application,
     val recipesList: Repository): BaseViewModel(application) {
 

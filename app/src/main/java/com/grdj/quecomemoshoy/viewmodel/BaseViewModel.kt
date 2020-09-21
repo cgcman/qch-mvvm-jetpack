@@ -8,16 +8,10 @@ import kotlinx.coroutines.Job
 import okhttp3.Dispatcher
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseViewModel(application: Application): AndroidViewModel(application), CoroutineScope {
-
-    private val job = Job()
-
-    override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Main
+abstract class BaseViewModel(application: Application): AndroidViewModel(application) {
 
     override fun onCleared() {
         super.onCleared()
-        job.cancel()
     }
 
 }

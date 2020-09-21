@@ -22,13 +22,11 @@ class FoodListViewModel @ViewModelInject public constructor(
     }
 
     private fun fetchFromRemote(app_id : String, app_key: String, from : String, to : String, query : String){
-        launch {
-            val response = recipesList.getRecipesResponse(app_id, app_key, from, to, query)
-            when (response) {
-                is ResultWrapper.NetworkError -> showNetworkError()
-                is ResultWrapper.GenericError -> showGenericError(response)
-                is ResultWrapper.Success -> populateUI(response.value.body())
-            }
+        val response = recipesList.getRecipesResponse(app_id, app_key, from, to, query)
+        when (response) {
+            is ResultWrapper.NetworkError -> showNetworkError()
+            is ResultWrapper.GenericError -> showGenericError(response)
+            is ResultWrapper.Success -> populateUI(response.value.body())
         }
     }
 

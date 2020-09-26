@@ -1,8 +1,7 @@
 package com.grdj.quecomemoshoy.repository
 
-import com.grdj.quecomemoshoy.api.apiCall
+import io.reactivex.Observable
 import com.grdj.quecomemoshoy.api.recipe.RecipeService
-import com.grdj.quecomemoshoy.api.results.ResultWrapper
 import com.grdj.quecomemoshoy.model.fullrecipe.RecipesResponse
 import retrofit2.Response
 
@@ -12,7 +11,7 @@ class RepositoryImpl(private val service: RecipeService) : Repository  {
                                             app_key: String,
                                             from : String,
                                             to : String,
-                                            query : String): ResultWrapper<Response<RecipesResponse>> {
-        return apiCall( service.search(app_id, app_key, from, to, query) )
+                                            query : String): Observable<Response<RecipesResponse>> {
+        return service.search(app_id, app_key, from, to, query)
     }
 }

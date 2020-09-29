@@ -58,8 +58,8 @@ class FoodListFragment : Fragment() {
     }
 
     private fun getRecipes(app_id: String, app_key: String){
-        progresBar.visibility= View.VISIBLE
-        viewModel.getDataFromTo(app_id, app_key, from.toString(), to.toString(), query)
+        progresBar.visibility = View.VISIBLE
+        viewModel.fetchData(app_id, app_key, from.toString(), to.toString(), query)
         viewModel.recipes.observe(viewLifecycleOwner, Observer{ recipesList ->
             recipesList.let {
                 recipeAdapter.updateList(it.hits)

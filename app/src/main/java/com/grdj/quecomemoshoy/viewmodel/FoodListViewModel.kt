@@ -16,22 +16,18 @@ import java.io.IOException
 
 class FoodListViewModel @ViewModelInject public constructor(
     application: Application,
-    val recipesList: Repository): BaseViewModel(application) {
+    private val repository: Repository): BaseViewModel(application) {
 
     var recipes = MutableLiveData<RecipesResponse>()
     var error = MutableLiveData<Boolean>()
     val compositeDisposable = CompositeDisposable()
 
-    fun getDataFromTo(app_id : String, app_key: String, from : String, to : String, query : String){
-        fetchFromRemote(app_id, app_key, from, to, query)
-    }
-
-    private fun fetchFromRemote(app_id : String, app_key: String, from : String, to : String, query : String){
-        val recipeResponse = recipesList.getRecipesResponse(app_id, app_key, from, to, query)
+    fun fetchData(app_id : String, app_key: String, from : String, to : String, query : String){
+        val recipeResponse = repository.getRecipesResponse(app_id, app_key, from, to, query)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                {value -> populateUI(value.body()) },
+                {value -> recipes.value = value.body() },
                 {error -> when (error) {
                     is IOException -> showNetworkError()
                     is HttpException -> {
@@ -45,10 +41,6 @@ class FoodListViewModel @ViewModelInject public constructor(
                 }}
             )
         compositeDisposable.add(recipeResponse)
-    }
-
-    private fun populateUI(response: RecipesResponse?){
-        recipes.value = response
     }
 
     private fun showNetworkError(){

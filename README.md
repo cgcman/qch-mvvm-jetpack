@@ -15,8 +15,8 @@ Lottie Animations<br>
 Retrofit 2<br>
 Corutines<br>
 Glide<br>
-Stetho to check endpoints data
-Unit Test
+Stetho to check endpoints data<br>
+Some Unit Test
 <br><br>
 #### Dagger Hilt branch Use:<br>
 Dagger Hilt Dependency injection<br>

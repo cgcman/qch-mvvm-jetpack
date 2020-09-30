@@ -13,7 +13,6 @@ import timber.log.Timber.DebugTree
 class MainApplication: Application() {
     override fun onCreate() {
         super.onCreate()
-        Stetho.initializeWithDefaults(this);
         startKoin {
             androidContext(this@MainApplication)
             androidLogger()
@@ -21,6 +20,7 @@ class MainApplication: Application() {
         }
         if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
+            Stetho.initializeWithDefaults(this);
         } else {
             Timber.plant(CrashReportingTree())
         }

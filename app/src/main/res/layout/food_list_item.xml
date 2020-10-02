@@ -27,11 +27,19 @@
             android:onClick="@{listener::onItemClicked}"
             android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/food_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:imageUrl="@{recipeModel.recipe.image}"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                app:cardCornerRadius="45dp">
+
+                <ImageView
+                    android:id="@+id/food_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:imageUrl="@{recipeModel.recipe.image}"/>
+
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_weight="1"

@@ -95,7 +95,6 @@ dependencies {
 
     /////////// EXTRAS //////////
     implementation 'com.github.nihad92:SwipeableCards:1.0.19'
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.github.ybq:Android-SpinKit:1.2.0'
 
     //////// LOTTIE ///////////

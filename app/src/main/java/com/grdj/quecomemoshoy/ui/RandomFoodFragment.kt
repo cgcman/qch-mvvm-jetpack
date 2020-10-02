@@ -17,6 +17,7 @@ import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.ui.adapters.SwiperAdapter
 import com.grdj.quecomemoshoy.viewmodel.RandomFoodViewModel
 import kotlinx.android.synthetic.main.fragment_random_food.*
+import timber.log.Timber
 
 class RandomFoodFragment : Fragment() {
 
@@ -28,15 +29,13 @@ class RandomFoodFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_random_food, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val itemOnClick: (Int) -> Unit = {position ->
-        }
+        val itemOnClick: (Int) -> Unit = {}
 
         val swipeableTouchHelperCallback = object : SwipeableTouchHelperCallback(object : OnItemSwiped {
             override fun onItemSwiped() {
@@ -44,19 +43,19 @@ class RandomFoodFragment : Fragment() {
             }
 
             override fun onItemSwipedLeft() {
-                Log.e("SWIPE", "LEFT")
+                Timber.d("LEFT")
             }
 
             override fun onItemSwipedRight() {
-                Log.e("SWIPE", "RIGHT")
+                Timber.d("RIGHT")
             }
 
             override fun onItemSwipedUp() {
-                Log.e("SWIPE", "UP")
+                Timber.d("UP")
             }
 
             override fun onItemSwipedDown() {
-                Log.e("SWIPE", "DOWN")
+                Timber.d("DOWN")
             }
         }) {
             override fun getAllowedSwipeDirectionsMovementFlags(viewHolder: RecyclerView.ViewHolder?): Int {

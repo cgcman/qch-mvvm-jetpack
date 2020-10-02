@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.grdj.quecomemoshoy.model.fullrecipe.RecipesResponse
 import com.grdj.quecomemoshoy.api.results.ResultWrapper
 import com.grdj.quecomemoshoy.repository.Repository
+import com.grdj.quecomemoshoy.utils.resources.ResourcesProvider
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -15,6 +16,7 @@ import timber.log.Timber
 class FoodListViewModel (application: Application): BaseViewModel(application), KoinComponent {
 
     val recipesList  by inject<Repository>()
+    val resourcesProvider  by inject<ResourcesProvider>()
     var recipes = MutableLiveData<RecipesResponse>()
     var error = MutableLiveData<Boolean>()
 
@@ -39,13 +41,13 @@ class FoodListViewModel (application: Application): BaseViewModel(application), 
 
     private fun showNetworkError(){
         error.value = true
-        Toast.makeText(getApplication(), "Error obteniendo los datos", Toast.LENGTH_SHORT).show()
+        Toast.makeText(getApplication(), resourcesProvider.getApiError(), Toast.LENGTH_SHORT).show()
         Timber.d("RESPONSE, NETWORK ERROR")
     }
 
     private fun showGenericError(response: Any?) {
         error.value = true
-        Toast.makeText(getApplication(), "Error obteniendo los datos", Toast.LENGTH_SHORT).show()
-        Timber.d("ERROR RESPONSE, "+response)
+        Toast.makeText(getApplication(), resourcesProvider.getApiError(), Toast.LENGTH_SHORT).show()
+        Timber.d("ERROR RESPONSE, $response")
     }
 }

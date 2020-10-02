@@ -30,16 +30,16 @@
                 android:background="@color/darkGrey"
                 android:layout_below="@+id/listTitle"/>
 
-            <ProgressBar
+            <com.github.ybq.android.spinkit.SpinKitView
                 android:id="@+id/progresBar"
+                style="@style/SpinKitView.RotatingCircle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:visibility="visible">
-
-            </ProgressBar>
+                android:visibility="visible"
+                app:SpinKit_Color="@color/colorAccent" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/error"

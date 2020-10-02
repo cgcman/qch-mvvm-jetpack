@@ -10,168 +10,183 @@
             type="com.grdj.quecomemoshoy.model.fullrecipe.Hits" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_light_background">
+        android:layout_height="match_parent">
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="410dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="16:9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:imageUrl="@{recipeModel.recipe.image}"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                android:background="@drawable/ic_002_espaguetis"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="230dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="125dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                app:layout_constraintVertical_bias="0.89"
+                app:srcCompat="@drawable/ic_white_like" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/belmonte"
+                android:gravity="center"
+                android:lineHeight="35sp"
+                android:text="@{recipeModel.recipe.label}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@{recipeModel.recipe.source}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/image"
+                app:layout_constraintVertical_bias="0.233" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/category"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="16dp"
+                android:rating="@{recipeModel.recipe.yield}"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/category"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintBottom_toTopOf="@+id/button3"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"/>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/buy"
+                app:layout_constraintEnd_toStartOf="@+id/button4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/share"
+                app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/button3"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <TextView
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@{recipeModel.recipe.ingredientLines.toString()}"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline3"
+                app:layout_constraintTop_toBottomOf="@+id/button3" />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="350dp"
-                    app:cardCornerRadius="0dp">
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="right"
+                android:maxLength="11"
+                android:text="@{`Cls: `+recipeModel.recipe.calories}"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/category"
+                app:layout_constraintTop_toBottomOf="@+id/image" />
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <ImageView
-                            android:id="@+id/image"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:imageUrl="@{recipeModel.recipe.image}"
-                            android:scaleType="centerCrop"/>
-
-                        <View
-                            android:id="@+id/anchorButton"
-                            android:layout_alignParentBottom="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="14dp"/>
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:paddingStart="8dp"
-                        android:paddingTop="8dp"
-                        android:text="@{recipeModel.recipe.label}"
-                        android:fontFamily="@font/belmonte"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="20sp"
-                        android:lineHeight="27sp"
-                        android:textStyle="bold"
-                        android:paddingLeft="8dp"
-                        android:layout_alignParentLeft="true"/>
-
-                    <TextView
-                        android:id="@+id/category"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/title"
-                        android:paddingBottom="8dp"
-                        android:paddingStart="8dp"
-                        android:text="@{`Creador: `+recipeModel.recipe.source}"
-                        android:textColor="@color/darkGrey"
-                        android:textSize="12sp"
-                        android:paddingLeft="8dp"
-                        android:layout_alignParentLeft="true"/>
-
-                    <TextView
-                        android:id="@+id/price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/ratingBar"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginTop="-24dp"
-                        android:layout_marginBottom="32dp"
-                        android:fontFamily="@font/belmonte"
-                        android:paddingEnd="8dp"
-                        android:paddingRight="8dp"
-                        android:text="@{`Calorias: `+recipeModel.recipe.calories}"
-                        android:textColor="@color/cardview_dark_background"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <RatingBar
-                        android:id="@+id/ratingBar"
-                        style="@style/Widget.AppCompat.RatingBar.Small"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/category"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginStart="8dp"
-                        android:rating="@{recipeModel.recipe.yield}"
-                        android:layout_marginLeft="8dp"/>
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/darkGrey" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:animateLayoutChanges="true"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/descriptionTitle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:paddingBottom="4dp"
-                                android:paddingEnd="8dp"
-                                android:paddingStart="8dp"
-                                android:paddingTop="8dp"
-                                android:textSize="20sp"
-                                android:text="Receta:"
-                                android:textStyle="bold"
-                                android:layout_alignParentLeft="true"/>
-
-                        </RelativeLayout>
-
-                        <TextView
-                            android:id="@+id/description"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingBottom="8dp"
-                            android:textSize="14sp"
-                            android:lineHeight="18sp"
-                            android:textColor="@android:color/black"
-                            android:paddingEnd="8dp"
-                            android:paddingStart="8dp"
-                            android:text="@{recipeModel.recipe.ingredientLines.toString()}">
-                        </TextView>
-
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

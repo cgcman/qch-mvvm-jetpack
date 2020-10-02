@@ -26,8 +26,8 @@ class RepositoryImpl(
             }
         } else {
             //// WIP -  ROOM PERSISTENS
-            return ResultWrapper.NetworkError
             networkManager.notConnectedMessage(resourceProvider.getNotConnectedMessage())
+            return ResultWrapper.NetworkError
         }
     }
 }

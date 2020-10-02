@@ -21,4 +21,12 @@
         <item name="android:background">?android:attr/listDivider</item>
     </style>
 
+    <style name="ListItemTitle">
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:fontFamily">@font/belmonte</item>
+    </style>
+
 </resources>

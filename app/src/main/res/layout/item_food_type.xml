@@ -38,7 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{foodTypeModel.title}"
-                android:textSize="11sp"
+                android:textSize="13sp"
+                android:lineHeight="25sp"
                 android:textColor="#484646"
                 android:layout_marginTop="5dp"
                 android:gravity="center"/>

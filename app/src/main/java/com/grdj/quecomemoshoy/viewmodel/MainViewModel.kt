@@ -1,7 +1,6 @@
 package com.grdj.quecomemoshoy.viewmodel
 
 import android.app.Application
-import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.model.FoodTypeModel
 import androidx.hilt.lifecycle.ViewModelInject
 import com.grdj.quecomemoshoy.utils.Constants.FOOD_TYPE_IMAGES
@@ -20,5 +19,4 @@ class MainViewModel @ViewModelInject constructor(application: Application): Base
             foodTypeList.add( _ftm );
         }
     }
-
 }

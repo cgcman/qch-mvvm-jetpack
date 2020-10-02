@@ -68,13 +68,13 @@
 
             </LinearLayout>
 
-            <com.grdj.quecomemoshoy.utils.CustomView
+            <com.grdj.quecomemoshoy.utils.ui.CustomView
                 android:id="@+id/theRecipeModel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone"
                 app:item="@{recipeModel}">
-            </com.grdj.quecomemoshoy.utils.CustomView>
+            </com.grdj.quecomemoshoy.utils.ui.CustomView>
 
         </LinearLayout>
 

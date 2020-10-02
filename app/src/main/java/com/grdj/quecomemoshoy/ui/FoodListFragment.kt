@@ -34,8 +34,6 @@ class FoodListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val app_id = resources.getString(R.string.EDAMAM_APP_ID)
-        val app_key = resources.getString(R.string.EDAMAM_API_KEY)
         arguments.let {
             query = FoodListFragmentArgs.fromBundle(it!!).query
             listTitle.text = query
@@ -45,10 +43,10 @@ class FoodListFragment : Fragment() {
             adapter = recipeAdapter
         }
         refreshLayout.setOnRefreshListener {
-            getRecipes(app_id, app_key)
+            getRecipes()
         }
         if(attached){
-            getRecipes(app_id, app_key)
+            getRecipes()
         }
     }
 
@@ -57,9 +55,9 @@ class FoodListFragment : Fragment() {
         attached = true
     }
 
-    private fun getRecipes(app_id: String, app_key: String){
+    private fun getRecipes(){
         progresBar.visibility= View.VISIBLE
-        viewModel.getDataFromTo(app_id, app_key, from.toString(), to.toString(), query)
+        viewModel.getDataFromTo(from.toString(), to.toString(), query)
         viewModel.recipes.observe(viewLifecycleOwner, Observer{ recipesList ->
             recipesList.let {
                 recipeAdapter.updateList(it.hits)

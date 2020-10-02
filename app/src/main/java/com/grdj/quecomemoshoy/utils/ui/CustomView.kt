@@ -1,4 +1,4 @@
-package com.grdj.quecomemoshoy.utils
+package com.grdj.quecomemoshoy.utils.ui
 
 import android.content.Context
 import android.util.AttributeSet

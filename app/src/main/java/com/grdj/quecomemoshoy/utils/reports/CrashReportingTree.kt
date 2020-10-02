@@ -1,4 +1,4 @@
-package com.grdj.quecomemoshoy.utils
+package com.grdj.quecomemoshoy.utils.reports
 
 import android.util.Log
 import timber.log.Timber
@@ -15,6 +15,7 @@ class CrashReportingTree : Timber.Tree() {
             return
         }
 
+        // This can be for example Fiebase CrashLytics
         // FakeCrashLibrary.log(priority, tag, message)
 
         if (t != null) {

@@ -3,7 +3,7 @@ package com.grdj.quecomemoshoy
 import android.app.Application
 import com.facebook.stetho.Stetho
 import com.grdj.quecomemoshoy.di.appModule
-import com.grdj.quecomemoshoy.utils.CrashReportingTree
+import com.grdj.quecomemoshoy.utils.reports.CrashReportingTree
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

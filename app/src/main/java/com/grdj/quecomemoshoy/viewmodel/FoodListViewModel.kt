@@ -18,13 +18,13 @@ class FoodListViewModel (application: Application): BaseViewModel(application), 
     var recipes = MutableLiveData<RecipesResponse>()
     var error = MutableLiveData<Boolean>()
 
-    fun getDataFromTo(app_id : String, app_key: String, from : String, to : String, query : String){
-        fetchFromRemote(app_id, app_key, from, to, query)
+    fun getDataFromTo(from : String, to : String, query : String){
+        fetchFromRemote(from, to, query)
     }
 
-    private fun fetchFromRemote(app_id : String, app_key: String, from : String, to : String, query : String){
+    private fun fetchFromRemote(from : String, to : String, query : String){
         launch {
-            val response = recipesList.getRecipesResponse(app_id, app_key, from, to, query)
+            val response = recipesList.getRecipesList(from, to, query)
             when (response) {
                 is ResultWrapper.NetworkError -> showNetworkError()
                 is ResultWrapper.GenericError -> showGenericError(response)

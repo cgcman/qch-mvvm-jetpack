@@ -5,9 +5,5 @@ import com.grdj.quecomemoshoy.model.fullrecipe.RecipesResponse
 import retrofit2.Response
 
 interface Repository {
-    suspend fun getRecipesResponse(app_id : String,
-                                   app_key: String,
-                                   from : String,
-                                   to : String,
-                                   query : String): ResultWrapper<Response<RecipesResponse>>
+    suspend fun getRecipesList(from : String, to : String, query : String): ResultWrapper<Response<RecipesResponse>>
 }

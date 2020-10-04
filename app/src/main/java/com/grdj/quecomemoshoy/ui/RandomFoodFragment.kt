@@ -1,8 +1,6 @@
 package com.grdj.quecomemoshoy.ui
 
-
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,8 +18,6 @@ import kotlinx.android.synthetic.main.fragment_random_food.*
 import timber.log.Timber
 
 class RandomFoodFragment : Fragment() {
-
-    //// viewmodel inject by koin
     val viewModel: RandomFoodViewModel by viewModel()
     private lateinit var swiperAdapter : SwiperAdapter
 
@@ -80,5 +76,4 @@ class RandomFoodFragment : Fragment() {
         viewModel.fetchFoodData()
         swiperAdapter.updateList(viewModel.recipeList)
     }
-
 }

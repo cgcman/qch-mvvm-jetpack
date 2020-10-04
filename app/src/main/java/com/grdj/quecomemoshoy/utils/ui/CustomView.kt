@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.View
 import com.grdj.quecomemoshoy.model.fullrecipe.Hits
 
-
 class CustomView @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,

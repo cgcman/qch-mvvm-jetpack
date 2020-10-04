@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.databinding.FragmentFoodDetailsBinding
 import com.grdj.quecomemoshoy.viewmodel.FoodDetailsViewModel
@@ -22,7 +21,6 @@ class FoodDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         dataBindng = DataBindingUtil.inflate(inflater, R.layout.fragment_food_details, container, false)
         return dataBindng.root
     }

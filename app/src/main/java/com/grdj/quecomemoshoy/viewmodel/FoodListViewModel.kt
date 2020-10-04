@@ -1,7 +1,6 @@
 package com.grdj.quecomemoshoy.viewmodel
 
 import android.app.Application
-import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.grdj.quecomemoshoy.model.fullrecipe.RecipesResponse
@@ -10,13 +9,13 @@ import com.grdj.quecomemoshoy.repository.Repository
 import com.grdj.quecomemoshoy.utils.resources.ResourcesProvider
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
-import org.koin.core.inject
 import timber.log.Timber
 
-class FoodListViewModel (application: Application): BaseViewModel(application), KoinComponent {
+class FoodListViewModel (
+    application: Application,
+    private val recipesList: Repository,
+    private val resourcesProvider: ResourcesProvider) : BaseViewModel(application), KoinComponent {
 
-    val recipesList  by inject<Repository>()
-    val resourcesProvider  by inject<ResourcesProvider>()
     var recipes = MutableLiveData<RecipesResponse>()
     var error = MutableLiveData<Boolean>()
 

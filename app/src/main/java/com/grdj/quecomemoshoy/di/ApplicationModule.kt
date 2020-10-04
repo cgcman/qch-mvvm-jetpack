@@ -6,6 +6,8 @@ import com.grdj.quecomemoshoy.api.recipe.RecipeService
 import com.grdj.quecomemoshoy.api.recipe.RecipeServiceImpl
 import com.grdj.quecomemoshoy.repository.Repository
 import com.grdj.quecomemoshoy.repository.RepositoryImpl
+import com.grdj.quecomemoshoy.utils.DefaultDispatcherProvider
+import com.grdj.quecomemoshoy.utils.DispatcherProvider
 import com.grdj.quecomemoshoy.utils.resources.ResourcesProvider
 import com.grdj.quecomemoshoy.utils.resources.ResourcesProviderImpl
 import com.grdj.quecomemoshoy.utils.network.NetworkManager
@@ -20,12 +22,18 @@ import org.koin.dsl.module
 val appModule = module{
     viewModel { MainViewModel(get()) }
     viewModel { RandomFoodViewModel(get()) }
-    viewModel { FoodListViewModel(get()) }
+    viewModel { FoodListViewModel(get(), RepositoryImpl(
+        NetworkManagerImpl(get()),
+        NetworkInteractorImpl(),
+        RecipeServiceImpl(ResourcesProviderImpl(get())),
+        ResourcesProviderImpl(get())
+    ), ResourcesProviderImpl(get())) }
     viewModel { FoodDetailsViewModel(get()) }
     single { ResourcesProviderImpl(get()) as ResourcesProvider }
     single { RecipeServiceImpl(ResourcesProviderImpl(get())) as RecipeService }
     single { NetworkInteractorImpl() as NetworkInteractor }
     single { NetworkManagerImpl(get()) as NetworkManager }
+    single { DefaultDispatcherProvider() as DispatcherProvider }
     single { RepositoryImpl(
                 NetworkManagerImpl(get()),
                 NetworkInteractorImpl(),

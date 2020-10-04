@@ -3,7 +3,6 @@ package com.grdj.quecomemoshoy.utils.reports
 import android.util.Log
 import timber.log.Timber
 
-
 class CrashReportingTree : Timber.Tree() {
     override fun log(
         priority: Int,

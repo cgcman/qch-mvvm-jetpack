@@ -52,7 +52,6 @@ class SwiperAdapter (val list:ArrayList<RecipeModel>, private val itemClickListe
                 .with(context)
                 .load(url)
                 .centerCrop()
-                //.placeholder(R.drawable.progress_spin)
                 .into(itemView.image)
 
             itemView.setOnClickListener { itemClickListener(adapterPosition) }

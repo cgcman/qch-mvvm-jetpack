@@ -10,14 +10,12 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.viewmodel.ext.android.viewModel
-
 import com.grdj.quecomemoshoy.R
 import com.grdj.quecomemoshoy.ui.adapters.FoodListAdapter
 import com.grdj.quecomemoshoy.viewmodel.FoodListViewModel
 import kotlinx.android.synthetic.main.fragment_food_list.*
 
 class FoodListFragment : Fragment() {
-    //// viewmodel inject by koin
     val viewModel: FoodListViewModel by viewModel()
     private val recipeAdapter = FoodListAdapter( arrayListOf() )
     private var from = 0
@@ -75,7 +73,4 @@ class FoodListFragment : Fragment() {
             }
         })
     }
-
-
-
 }

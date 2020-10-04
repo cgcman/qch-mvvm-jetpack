@@ -6,8 +6,6 @@ import com.grdj.quecomemoshoy.api.results.ResultWrapper
 import com.grdj.quecomemoshoy.model.fullrecipe.RecipesResponse
 import com.grdj.quecomemoshoy.utils.network.NetworkManager
 import com.grdj.quecomemoshoy.utils.resources.ResourcesProvider
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import retrofit2.Response
 
 class RepositoryImpl(
@@ -17,11 +15,9 @@ class RepositoryImpl(
     private val resourceProvider: ResourcesProvider
 ) : Repository  {
 
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
-
     override suspend fun getRecipesList(from : String, to : String, query : String): ResultWrapper<Response<RecipesResponse>> {
         if(networkManager.isConnected()){
-            return networkInteractor.apiCall(dispatcher) {
+            return networkInteractor.apiCall() {
                 service.search(from, to, query)
             }
         } else {

@@ -1,16 +1,17 @@
 package com.grdj.quecomemoshoy.api
 
 import com.grdj.quecomemoshoy.api.results.ResultWrapper
+import com.grdj.quecomemoshoy.utils.DefaultDispatcherProvider
+import com.grdj.quecomemoshoy.utils.DispatcherProvider
 import com.squareup.moshi.Moshi
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 
-class NetworkInteractorImpl: NetworkInteractor {
+class NetworkInteractorImpl(private val dispatcher: DispatcherProvider = DefaultDispatcherProvider()) : NetworkInteractor {
 
-    override suspend fun <T> apiCall(dispatcher: CoroutineDispatcher, apiCall: suspend () -> T): ResultWrapper<T> {
-        return withContext(dispatcher) {
+    override suspend fun <T> apiCall(apiCall: suspend () -> T): ResultWrapper<T> {
+        return withContext(dispatcher.io()) {
             try {
                 ResultWrapper.Success(apiCall.invoke())
             } catch (throwable: Throwable) {

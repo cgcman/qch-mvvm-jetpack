@@ -14,8 +14,6 @@ import com.grdj.quecomemoshoy.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
-
-    //// viewmodel inject by koin
     val viewModel: MainViewModel by viewModel()
     private val foodTypeAdapter = FoodTypeAdapter( arrayListOf() )
 

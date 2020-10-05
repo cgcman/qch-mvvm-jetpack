@@ -2,7 +2,7 @@
 
 # Demo Recipe App
 
-### Test application that shows and filter Recipes, using differents tecnologics and devs tools.
+### Test application that shows and filter Recipes, using differents technologies and devs tools.
 [![Visit Website](http://www.grdj.com.ar/img/QCHTestFull2.jpg)](http://www.grdj.com.ar)
 <br><br>This projects have 2 main branches Master and Dagger Hilt, bouth have the same app but Master use koin and Coroutines for threat, and the other use Dagger Hilt and RXJava for threat.<br><br>
 #### (Most updated) Master branch Use:<br>
